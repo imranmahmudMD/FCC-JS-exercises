@@ -1,0 +1,39 @@
+// Simple card counter for blackjack
+
+
+var count = 0;
+
+function cc(card) {
+  // Only change code below this line
+  // set up the switch function to assess each card in turn and determine what to do
+switch(card) {
+  case 2:
+  case 3:
+  case 4:
+  case 5:
+  case 6:
+    count++; // if card is 2-6, then add 1 to count 
+    break;
+  case 10:
+  case 'J':
+  case 'Q':
+  case 'K':
+  case 'A':
+    count--; // if card is 10 - "A", then subtract 1 from count 
+    break;
+}
+
+var holdBet = "Hold" // Create a variable called holdBet and set a default value as "Hold"
+  if (count > 0) { // If the value is greater than 0, assign the variable holdBet as "Bet"
+    holdBet = "Bet"
+} // Close the functions
+
+return count + " " + holdBet // Return the count and then the holdBet variable
+
+
+}
+  // Only change code above this line
+
+cc(2); cc(3); cc("A"); cc('K'); cc('A');
+
+
