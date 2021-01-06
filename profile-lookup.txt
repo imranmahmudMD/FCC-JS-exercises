@@ -31,7 +31,7 @@ function lookUpProfile(name, prop){
 // Only change code below this line
 
 for (var i = 0; i < contacts.length; i++) { // set a variable i and then index 0 to start at the first contact. At the end of each cycle, add 1 to i. 
-   if((contacts[i].firstName === name) || (contacts[i].lastName === name)) {  // search through each contact to see if firstName is the same as the name passed in the function
+   if((contacts[i].firstName === name) || (contacts[i].lastName === name)) {  // search through each contact to see if firstName or lastName is the same as the name passed in the function
     return contacts[i][prop] || "No such property"; // if there is a match, return the property of that contact. If there is no match, return a message. 
    }
  }
