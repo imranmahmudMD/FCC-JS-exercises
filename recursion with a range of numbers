@@ -1,0 +1,22 @@
+Continuing from the previous challenge, we provide you another opportunity to create a recursive function to solve a problem.
+
+We have defined a function named rangeOfNumbers with two parameters. 
+The function should return an array of integers which begins with a number represented by the startNum parameter and ends with a number represented by the endNum parameter. 
+The starting number will always be less than or equal to the ending number. Your function must use recursion by calling itself and not use loops of any kind. 
+It should also work for cases where both startNum and endNum are the same.
+
+===== ANSWER ======
+
+function rangeOfNumbers(startNum, endNum) {
+  if (startNum == endNum) { // if the starting number is greater than the ending number, don't go further
+    return [startNum];
+  } else { 
+    const countArray = rangeOfNumbers(startNum, endNum - 1); // create an array, count down from end number by 1
+    countArray.push(endNum); // push this into the array
+    return countArray;
+  }
+}
+
+console.log(rangeOfNumbers(5,5));
+
+console.log(rangeOfNumbers(5,13));
