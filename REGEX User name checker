@@ -1,0 +1,37 @@
+Regular Expressions: Restrict Possible Usernames
+Usernames are used everywhere on the internet. They are what give users a unique identity on their favorite sites.
+
+You need to check all the usernames in a database. Here are some simple rules that users have to follow when creating their username.
+
+Usernames can only use alpha-numeric characters.
+
+The only numbers in the username have to be at the end. There can be zero or more of them at the end. Username cannot start with the number.
+
+Username letters can be lowercase and uppercase.
+
+Usernames have to be at least two characters long. A two-character username can only use alphabet letters as characters.
+
+Change the regex userCheck to fit the constraints listed above.
+
+======ANSWER======
+
+let username = "JackOfAllTrades";
+let userCheck = /^[a-z][a-z]+\d*$|^[a-z]\d\d+$/i; // Change this line
+let result = username.match(userCheck);
+
+console.log(username.match(userCheck));
+
+// 1) Usernames can only use alpha-numeric characters. 
+//     Use \W to find any non-eligible characters => /\W/
+
+// 2) The only numbers in the username have to be at the end. There can be zero or more of them at the end. Username cannot start with the number.
+//     ^[0-9] must be false, or ^[^0-9] must be true => ^[0-9]
+//     count of numbers must be equal to length of 0-9*$/ => [0-9*]$
+
+// 3) Username letters can be lowercase and uppercase. N/A
+
+// // 4) Usernames have to be at least two characters long. A two-character username can only use alphabet letters as characters.
+//     Exclude 1 char username, include 2 char
+
+// //     match length  must be >2 
+// //     if 2, then length must be equal to a match with [a-zA-Z]
