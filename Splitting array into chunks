@@ -1,0 +1,16 @@
+Basic Algorithm Scripting: Chunky Monkey
+Write a function that splits an array (first argument) into groups the length of size (second argument) and returns them as a two-dimensional array.
+
+=== ANSWER ===
+
+function chunkArrayInGroups(arr, size) { 
+  let slicedArray = [];
+  for(let i = 0; i<arr.length; i+= size){
+slicedArray.push(arr.slice(i, (i+size)));
+  }
+  return slicedArray
+}
+
+chunkArrayInGroups(["a", "b", "c", "d"], 2);
+
+// cycle through the array, and every (size) spots, slice out (size) units into a new array
