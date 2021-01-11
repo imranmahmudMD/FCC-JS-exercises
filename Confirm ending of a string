@@ -1,0 +1,22 @@
+Basic Algorithm Scripting: Confirm the Ending
+Check if a string (first argument, str) ends with the given target string (second argument, target).
+
+This challenge can be solved with the .endsWith() method, which was introduced in ES2015. But for the purpose of this challenge, we would like you to use one of the JavaScript substring methods instead.
+
+=== ANSWER ===
+
+function confirmEnding(str, target) {
+  let stringLength = str.length;
+  // console.log(stringLength) 
+
+  let targetLength = target.length;
+  // console.log(targetLength);
+
+if(str.substring(stringLength-targetLength) == target){
+  return true
+}
+return false
+}
+
+confirmEnding("Bastian", "n");
+
