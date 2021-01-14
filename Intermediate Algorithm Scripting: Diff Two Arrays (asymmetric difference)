@@ -1,0 +1,18 @@
+Compare two arrays and return a new array with any items only found in one of the two given arrays, but not both. In other words, return the symmetric difference of the two arrays.
+
+Note
+You can return the array with its elements in any order.
+
+=== ANSWER ===
+
+function diffArray(arr1, arr2) {
+  const x = arr1.filter(x => !arr2.includes(x));
+  const y = arr2.filter(y => !arr1.includes(y));
+  
+  const difference = x.concat(y);
+  return difference;
+}
+
+diffArray(["diorite", "andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"]);
+
+// take one array and compare to the other item by item, if the item not found then push into new array
