@@ -1,0 +1,12 @@
+Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.
+
+== ANSWER ==
+
+function spinalCase(str) {
+     let camelCaseHandled = str.replace(/([a-z])([A-Z])/g, "$1 $2")
+     let spacesAndDashes = camelCaseHandled.replace(/\s|_/g, "-")
+     let spacesAndDashesLC = spacesAndDashes.toLowerCase();
+     return spacesAndDashesLC;
+}
+let result = spinalCase('thisIsSpinalTap');
+console.log(result);
