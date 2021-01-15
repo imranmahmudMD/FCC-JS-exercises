@@ -1,0 +1,24 @@
+Find the missing letter in the passed letter range and return it.
+
+If all letters are present in the range, return undefined.
+
+== ANSWER == 
+
+function fearNotLetter(str) {
+
+let alphabet = "abcdefghijklmnopqrstuvwxyz";
+let startingLetter = alphabet.indexOf(str[0]);
+
+for(let i = startingLetter; i < startingLetter + str.length; i++) {
+  if(alphabet[i] != str[i - startingLetter]) {
+  return alphabet[i];  
+  }}
+
+} 
+let result = fearNotLetter("abcdefghijklmnopqrstuvwxyz");
+
+console.log(result)
+
+// identify the code for the first letter in the string. then cycle through the string on step at a time and if the next letter is not code + 1, then return it. If it is, move to the next. 
+
+// alternative case when no digit is missing is that the first character + length of the string = last character. 
