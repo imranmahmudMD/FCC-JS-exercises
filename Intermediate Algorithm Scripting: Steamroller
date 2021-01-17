@@ -1,0 +1,31 @@
+Flatten a nested array. You must account for varying levels of nesting.
+
+== ANSWER == cannot use .flat() 
+
+function steamrollArray(arr) {
+  var flattenedArray = [];
+
+var flatten = function(arg) {
+  if (!Array.isArray(arg)) {
+    flattenedArray.push(arg)
+} else {
+  for (var a in arg) {
+  flatten(arg[a]);
+     }
+  }
+} 
+arr.forEach(flatten);
+return flattenedArray;
+}
+
+let result =  steamrollArray([[["a"]], [["b"]]]);
+
+console.log(result)
+
+// Notes:
+Code Explanation
+Create a new variable to keep flattened arrays.
+Create a function that will add non-array elements to the new variable, and for the ones that are array, loop through them to get the element.
+It does that by using recursion, if the element is an array then call the function again with a layer of array deeper to check if it is an array or not. If it is not then push that non-array element to the variable that gets returned. Otherwise, keep going deeper.
+Invoke the function, the first time you will always pass it an array, so it always falls into the isArray branch
+Return the flattened array.
