@@ -1,0 +1,57 @@
+Return a new array that transforms the elements' average altitude into their orbital periods (in seconds).
+
+The array will contain objects in the format {name: 'name', avgAlt: avgAlt}.
+
+You can read about orbital periods on Wikipedia.
+
+The values should be rounded to the nearest whole number. The body being orbited is Earth.
+
+The radius of the earth is 6367.4447 kilometers, and the GM value of earth is 398600.4418 km3s-2.
+
+Tasks:
+Pull values out of array
+Manipulate with a complex-ish math formula 
+return the result in an array
+
+== ANSWER ==
+
+function orbitalPeriod(arr) {
+  var GM = 398600.4418;
+  var earthRadius = 6367.4447;
+  var pi = 3.14159265359;
+
+// Initialise the results array
+let orbitalPeriodResults = [];
+
+
+// Create a function for the math part
+arr.forEach(function(dataPoint) {
+let translatedDataPoint = {};
+let twoTimesPi = Math.PI * 2;
+let earthRadiusPlusAverageAltitude = earthRadius + dataPoint.avgAlt;
+let topOfDivider = earthRadiusPlusAverageAltitude *
+                    earthRadiusPlusAverageAltitude *
+                    earthRadiusPlusAverageAltitude;
+
+
+let numberToSquareRoot = topOfDivider / GM;
+
+let squareRoot = Math.sqrt(numberToSquareRoot)
+
+// Deliver the final result:
+let orbitalPeriodResult = twoTimesPi * squareRoot;
+
+// return the results as an array with the dataPoint name and the orbital period results
+translatedDataPoint.name = dataPoint.name;
+translatedDataPoint.orbitalPeriod = Math.round(orbitalPeriodResult);
+// console.log(translatedDataPoint);
+orbitalPeriodResults.push(translatedDataPoint);
+}
+)
+
+return orbitalPeriodResults;
+}
+
+let result = orbitalPeriod([{name: "iss", avgAlt: 413.6}, {name: "hubble", avgAlt: 556.7}, {name: "moon", avgAlt: 378632.553}]);
+
+console.log(result)
